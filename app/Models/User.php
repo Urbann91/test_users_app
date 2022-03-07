@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * App\Models\User
@@ -32,6 +33,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class User extends Model
 {
+    use LogsActivity;
     use SoftDeletes;
 
     /**
@@ -44,4 +46,11 @@ class User extends Model
         'email',
         'notes',
     ];
+
+    /**
+     * @return string
+     */
+    function getMorphClass () {
+        return $this->table;
+    }
 }
