@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  pgsql_db:
+    image: library/postgres:12.4-alpine
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U homestead -d robo" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: homestead
+      POSTGRES_DB: &database homestead
+    ports:
+      - 7001:5432
+    volumes:
+      - pg_data:/var/lib/mysql
+
+  app:
+    build: .
+    volumes:
+      - ./:/var/www/app
+    environment:
+      DB_HOST: pgsql_db
+      DB_DATABASE: *database
+    depends_on:
+      - pgsql_db
+
+volumes:
+  pg_data:
+
+networks:
+  default:
