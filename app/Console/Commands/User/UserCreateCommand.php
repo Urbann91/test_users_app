@@ -28,6 +28,14 @@ class UserCreateCommand extends Command
      */
     public function handle(UserRepositoryInterface $userRepository): void
     {
-        $userRepository->create($this->options())->toJson();
+        $this->printIt($userRepository->create($this->options())->toJson());
+    }
+
+    /**
+     * @param string $result
+     */
+    public function printIt(?string $result)
+    {
+        $this->info($result);
     }
 }

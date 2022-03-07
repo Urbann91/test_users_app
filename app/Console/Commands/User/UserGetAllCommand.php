@@ -28,6 +28,14 @@ class UserGetAllCommand extends Command
      */
     public function handle(UserRepositoryInterface $userRepository): void
     {
-        dd($userRepository->all()->toJson());
+        $this->printIt($userRepository->all()->toJson());
+    }
+
+    /**
+     * @param string $result
+     */
+    public function printIt(?string $result)
+    {
+        $this->info($result);
     }
 }

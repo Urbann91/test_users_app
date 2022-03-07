@@ -60,6 +60,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('rules');
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,7 @@ $app->configure('app');
  $app->register(App\Providers\AppServiceProvider::class);
  $app->register(App\Providers\RepositoryServiceProvider::class);
  $app->register(App\Providers\AuthServiceProvider::class);
+ $app->register(App\Providers\ValidatorDataServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*

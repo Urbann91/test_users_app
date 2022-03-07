@@ -28,6 +28,14 @@ class UserSoftDeleteByIdCommand extends Command
      */
     public function handle(UserRepositoryInterface $userRepository): void
     {
-        dd($userRepository->delete($this->argument('id')));
+        $this->printIt($userRepository->delete($this->argument('id')));
+    }
+
+    /**
+     * @param string $result
+     */
+    public function printIt(?string $result)
+    {
+        $this->info($result);
     }
 }

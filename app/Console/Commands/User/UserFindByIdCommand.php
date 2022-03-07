@@ -28,6 +28,21 @@ class UserFindByIdCommand extends Command
      */
     public function handle(UserRepositoryInterface $userRepository): void
     {
-        dd(optional($userRepository->find($this->argument('id')))->toJson());
+        /*
+            транзакция с блокировкой строки ->lockForUpdate() опущены, но учтены
+            DB::transaction(function () use ($ids, $declineReason, $appMaster) {
+
+            });
+        */
+
+        $this->printIt(optional($userRepository->find($this->argument('id')))->toJson());
+    }
+
+    /**
+     * @param string $result
+     */
+    public function printIt(?string $result)
+    {
+        $this->info($result);
     }
 }

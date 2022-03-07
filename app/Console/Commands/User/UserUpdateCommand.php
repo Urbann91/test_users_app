@@ -28,6 +28,14 @@ class UserUpdateCommand extends Command
      */
     public function handle(UserRepositoryInterface $userRepository): void
     {
-        dd($userRepository->update($this->argument('id'), array_filter($this->options())));
+        $this->printIt($userRepository->update($this->argument('id'), array_filter($this->options())));
+    }
+
+    /**
+     * @param string $result
+     */
+    public function printIt(?string $result)
+    {
+        $this->info($result);
     }
 }
