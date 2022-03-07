@@ -1,24 +1,42 @@
-# Lumen PHP Framework
+# Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
 [![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
 [![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
 [![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+Uses light version of Laravel named Lumen.
 
-## Official Documentation
+## Install & start
+**todo: move to makefile and use as single command**
+- cp .env.example .env
+- docker-compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g)
+- docker-compose up -d --force-recreate
+- docker-compose run --rm app composer install
+- docker-compose run --rm app php artisan migrate
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## Stop service
+- docker-compose down --rmi local --remove-orphans
 
-## Contributing
+## Init ide-helper
+- ./usersapp ide-helper:generate
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Use database connection in ide client
+- jdbc:postgresql://localhost:7001/homestead
 
-## Security Vulnerabilities
+## How use it (via artisan CLI)
+- ./usersapp user:get-all
+- ./usersapp user:create --name=name --email=name@name.com --notes=notes
+- ./usersapp user:find-by-id 1
+- ./usersapp user:update 1 --name=name --email=name@name.com
+- ./usersapp user:soft-delete-by-id 1
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## Modify black lists
+- add variable to .env BLACK_LIST_NAME=name1,name2
+- add variable to .env BLACK_LIST_EMAIL=email1,email2
+
+## Revisions
+The package spatie/laravel-activitylog is used. The activity_log table and trait LogsActivity are involved
 
 ## License
-
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

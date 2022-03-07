@@ -22,6 +22,10 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes('deleted_at');
 
+           /* Из задания не понятно как должны сочетаться удаленные через
+            soft-delete записи и уникальные поля в DDL схеме. Поэтому нельзя создать пользователя с именем (email),
+            которое ранее было использовано удаленным.*/
+
             $table->unique(['email']);
             $table->unique(['name']);
         });

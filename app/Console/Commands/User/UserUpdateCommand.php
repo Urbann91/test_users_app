@@ -28,6 +28,13 @@ class UserUpdateCommand extends Command
      */
     public function handle(UserRepositoryInterface $userRepository): void
     {
+        /*
+            транзакция с блокировкой строки ->lockForUpdate() опущены, но учтены
+            DB::transaction(function () {
+
+            });
+        */
+
         $this->printIt($userRepository->update($this->argument('id'), array_filter($this->options())));
     }
 

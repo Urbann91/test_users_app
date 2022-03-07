@@ -30,7 +30,7 @@ class UserFindByIdCommand extends Command
     {
         /*
             транзакция с блокировкой строки ->lockForUpdate() опущены, но учтены
-            DB::transaction(function () use ($ids, $declineReason, $appMaster) {
+            DB::transaction(function () {
 
             });
         */
