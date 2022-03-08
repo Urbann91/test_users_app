@@ -34,9 +34,9 @@ The package spatie/laravel-activitylog is used. The activity_log table and trait
 
 ## How use it (via artisan CLI)
 - ./usersapp user:get-all
-- ./usersapp user:create --name=name --email=name@name.com --notes=notes
+- ./usersapp user:create --name=testname123 --email=testemail123@name.com --notes=notes
 - ./usersapp user:find-by-id 1
-- ./usersapp user:update 1 --name=name --email=name@name.com
+- ./usersapp user:update 1 --email=testemail1234@name.com
 - ./usersapp user:soft-delete-by-id 1
 
 ## Modify black lists
