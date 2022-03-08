@@ -18,6 +18,9 @@ Uses light version of Laravel named Lumen.
 ## Stop service
 - docker-compose down --rmi local --remove-orphans
 
+## Revisions
+The package spatie/laravel-activitylog is used. The activity_log table and trait LogsActivity are involved
+
 ## Init ide-helper
 - ./usersapp ide-helper:generate
 
@@ -40,8 +43,8 @@ Uses light version of Laravel named Lumen.
 - add variable to .env BLACK_LIST_NAME=name1,name2
 - add variable to .env BLACK_LIST_EMAIL=email1,email2
 
-## Revisions
-The package spatie/laravel-activitylog is used. The activity_log table and trait LogsActivity are involved
+## Run tests
+- docker-compose run --rm app vendor/bin/phpunit
 
 ## License
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
