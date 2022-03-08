@@ -7,18 +7,19 @@ use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Interface EloquentRepositoryInterface
+ *
  * @package App\Repositories
  */
 interface EloquentRepositoryInterface
 {
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return Model
      */
     public function create(array $attributes): Model;
 
     /**
-     * @param $id
+     * @param  $id
      * @return Model
      */
     public function find($id): ?Model;
@@ -29,14 +30,14 @@ interface EloquentRepositoryInterface
     public function all(): Collection;
 
     /**
-     * @param $id
-     * @param array $data
+     * @param  $id
+     * @param  array $data
      * @return bool|null
      */
     public function update($id, array $data): ?bool;
 
     /**
-     * @param $ids
+     * @param  $ids
      * @return int
      */
     public function delete($ids): int;

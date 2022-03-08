@@ -8,7 +8,7 @@ use Illuminate\Validation\ValidationException;
 abstract class BaseDataValidator implements DataValidatorInterface
 {
     /**
-     * @param array $data
+     * @param  array $data
      * @return array|mixed
      * @throws ValidationException
      */

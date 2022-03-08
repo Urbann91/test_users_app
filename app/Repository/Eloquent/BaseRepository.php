@@ -15,6 +15,7 @@ abstract class BaseRepository implements EloquentRepositoryInterface
 
     /**
      * BaseRepository constructor.
+     *
      * @param Model $model
      */
     public function __construct(Model $model)
@@ -31,7 +32,7 @@ abstract class BaseRepository implements EloquentRepositoryInterface
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return Model
      */
     public function create(array $attributes): Model
@@ -40,7 +41,7 @@ abstract class BaseRepository implements EloquentRepositoryInterface
     }
 
     /**
-     * @param $id
+     * @param  $id
      * @return Model|null
      */
     public function find($id): ?Model
@@ -49,8 +50,8 @@ abstract class BaseRepository implements EloquentRepositoryInterface
     }
 
     /**
-     * @param $id
-     * @param array $data
+     * @param  $id
+     * @param  array $data
      * @return bool
      */
     public function update($id, array $data): ?bool
@@ -59,7 +60,7 @@ abstract class BaseRepository implements EloquentRepositoryInterface
     }
 
     /**
-     * @param \Illuminate\Support\Collection|array|int|string $ids
+     * @param  \Illuminate\Support\Collection|array|int|string $ids
      * @return int
      */
     public function delete($ids): int

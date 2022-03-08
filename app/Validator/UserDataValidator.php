@@ -11,7 +11,7 @@ class UserDataValidator extends BaseDataValidator implements UserDataValidatorIn
     {
         return [
             'name' => 'regex:/^[a-z0-9\s]+$/|min:8|max:64|unique:users,name|not_in:' . $this->nameBlackList(),
-            'email' => 'email:rfc,dns|unique:users,email|max:256|not_in:' . $this->emailBlackList(),
+            'email' => 'email:rfc,dns,filter|unique:users,email|max:256|not_in:' . $this->emailBlackList(),
         ];
     }
 

@@ -26,7 +26,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return Model
      */
     public function create(array $attributes): Model
@@ -37,8 +37,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     }
 
     /**
-     * @param $id
-     * @param array $attributes
+     * @param  $id
+     * @param  array $attributes
      * @return bool
      */
     public function update($id, array $attributes): ?bool

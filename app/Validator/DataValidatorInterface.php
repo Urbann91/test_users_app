@@ -10,7 +10,7 @@ interface DataValidatorInterface
     public function rules(): array;
 
     /**
-     * @param array $data
+     * @param  array $data
      * @return mixed
      */
     public function isPassed(array $data);

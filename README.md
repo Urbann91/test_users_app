@@ -21,6 +21,11 @@ Uses light version of Laravel named Lumen.
 ## Init ide-helper
 - ./usersapp ide-helper:generate
 
+## Code-style PSR1 & PSR2 & PSR12
+**installed squizlabs/php_codesniffer**
+- docker-compose run --rm app vendor/bin/phpcs --ignore=*/vendor/* .
+- docker-compose run --rm app vendor/bin/phpcbf --ignore=*/vendor/* .
+
 ## Use database connection in ide client
 - jdbc:postgresql://localhost:7001/homestead
 
